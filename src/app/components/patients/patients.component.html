@@ -1,16 +1,25 @@
+<app-navbar></app-navbar>
 <div *ngFor="let patient of patients" class="card card-body mb-2">
+  <div class="row">
+    <button [routerLink]="['patient/create']" class="btn btn-secondary">
+      Crear nuevo paciente
+    </button>
+  </div>
   <div class="row">
     <div class="col-md-8">
       <ul>
-        <li>name: {{ patient.first_name }}</li>
-        <li>description: {{ patient.middle_name }}</li>
-        <li>price: {{ patient.last_name }}</li>
-        <li>createdAt: {{ patient.id_card }}</li>
+        <li>Nombre del paciente: {{ patient.first_name }}</li>
+        <li>Segundo nombre del paciente: {{ patient.middle_name }}</li>
+        <li>Apellido del paciente: {{ patient.last_name }}</li>
+        <li>Número de cédula del paciente: {{ patient.id_card }}</li>
       </ul>
       <button (click)="deletePatient(patient.id)" class="btn btn-danger">
         Eliminar
       </button>
-      <button [routerLink]="['/', patient.id]" class="btn btn-secondary">
+      <button
+        [routerLink]="['patient/edit', patient.id]"
+        class="btn btn-secondary"
+      >
         Actualizar
       </button>
     </div>

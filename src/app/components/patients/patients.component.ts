@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Patient } from 'src/app/interfaces/patient';
+import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,14 +14,21 @@ import { UserService } from 'src/app/services/user.service';
 export class PatientsComponent implements OnInit {
   patients: Patient[] = [];
 
-  constructor(private patientService: PatientService) {}
+  constructor(
+    private patientService: PatientService,
+    private authService: AuthService
+  ) {}
   ngOnInit(): void {
     this.getPatients();
+    console.log(this.authService.isAuthenticated());
   }
 
   getPatients(): void {
     this.patientService.getPatients().subscribe(
-      (res) => (this.patients = res),
+      (res) => {
+        console.log(res);
+        this.patients = res;
+      },
       (err) => console.log(err)
     );
   }

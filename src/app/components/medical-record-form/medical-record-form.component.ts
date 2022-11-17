@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MedicalRecord } from 'src/app/interfaces/medical-record';
 import { MedicalRecordService } from 'src/app/services/medical-record.service';
 
@@ -15,17 +15,22 @@ export class MedicalRecordFormComponent implements OnInit {
 
   constructor(
     private medicalRecordService: MedicalRecordService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const params = this.activatedRoute.snapshot.params;
+    console.log(params);
+  }
 
   //TODO: Get current user id and patient id
+
   submitMedicalRecord() {
     this.medicalRecordService
       .createMedicalRecord(1, 1, this.medicalRecord)
       .subscribe((res) => {
         console.log(res);
-        this.router.navigate(['/']);
+        this.router.navigate(['patients']);
       });
   }
 }

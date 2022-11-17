@@ -10,7 +10,14 @@
       >
         Eliminar
       </button>
-      <button [routerLink]="['/', medicalRecord.id]" class="btn btn-secondary">
+      <button
+        [routerLink]="[
+          'patients/patient/:id/medicalrecord/',
+          1,
+          medicalRecord.id
+        ]"
+        class="btn btn-secondary"
+      >
         Actualizar
       </button>
     </div>

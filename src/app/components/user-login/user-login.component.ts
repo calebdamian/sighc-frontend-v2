@@ -28,7 +28,7 @@ export class UserLoginComponent {
   login() {
     this.authService
       .login(this.user)
-      .pipe(map((token) => this.router.navigate(['dashboard'])))
+      .pipe(map((token) => this.router.navigate(['patients'])))
       .subscribe(
         (res) => {
           console.log(res);

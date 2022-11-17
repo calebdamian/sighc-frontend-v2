@@ -8,7 +8,6 @@ import { PatientsComponent } from './components/patients/patients.component';
 import { MedicalRecordsComponent } from './components/medical-records/medical-records.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserSignupComponent } from './components/user-signup/user-signup.component';
-import { MainComponent } from './components/main/main.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
@@ -17,6 +16,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PatientFormComponent } from './components/patient-form/patient-form.component';
 import { MedicalRecordFormComponent } from './components/medical-record-form/medical-record-form.component';
+import { PatientEditFormComponent } from './components/patient-edit-form/patient-edit-form.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +26,10 @@ import { MedicalRecordFormComponent } from './components/medical-record-form/med
     MedicalRecordsComponent,
     UserLoginComponent,
     UserSignupComponent,
-    MainComponent,
     NavbarComponent,
     PatientFormComponent,
     MedicalRecordFormComponent,
+    PatientEditFormComponent,
   ],
   imports: [
     BrowserModule,
