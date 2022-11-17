@@ -5,6 +5,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
+import { SignupForm } from '../interfaces/signup-form';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -24,10 +25,10 @@ export class UserService {
       .get<User[]>(`${this.BASE_URL}/users`, this.httpOptions)
       .pipe(map((results: any) => results.users, catchError(this.handleError)));
   }
-  getUser(id: string): Observable<User> {
+  getUser(id: number): Observable<User> {
     return this.http.get<User>(`${this.BASE_URL}/user/${id}`, this.httpOptions);
   }
-  createUser(user: User): Observable<User> {
+  createUser(user: SignupForm): Observable<User> {
     return this.http.post<User>(`${this.BASE_URL}/user/signup`, user);
   }
   deleteUser(id?: number) {

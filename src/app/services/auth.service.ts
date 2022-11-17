@@ -2,10 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of, switchMap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-export interface LoginForm {
-  username: string;
-  password: string;
-}
+import { LoginForm } from '../interfaces/login-form';
 
 export const JWT_NAME = 'usr_token';
 @Injectable({

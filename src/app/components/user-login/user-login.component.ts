@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
+import { LoginForm } from 'src/app/interfaces/login-form';
 import { User } from 'src/app/interfaces/user';
-import { AuthService, LoginForm } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -27,7 +28,7 @@ export class UserLoginComponent {
   login() {
     this.authService
       .login(this.user)
-      .pipe(map((token) => this.router.navigate([''])))
+      .pipe(map((token) => this.router.navigate(['dashboard'])))
       .subscribe(
         (res) => {
           console.log(res);

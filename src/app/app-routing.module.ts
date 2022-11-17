@@ -11,11 +11,11 @@ const routes: Routes = [
     component: UserLoginComponent,
   },
   {
-    path: 'signup',
+    path: '',
     component: UserSignupComponent,
   },
   {
-    path: '',
+    path: 'dashboard',
     component: MainComponent,
     canActivate: [AuthGuard],
   },

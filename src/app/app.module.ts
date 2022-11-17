@@ -14,6 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthService } from './services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     UserLoginComponent,
     UserSignupComponent,
     MainComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
