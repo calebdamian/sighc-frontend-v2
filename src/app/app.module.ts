@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { MedicalRecordsComponent } from './components/medical-records/medical-records.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { UserSignupComponent } from './components/user-signup/user-signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     PatientsComponent,
-    MedicalRecordsComponent
+    MedicalRecordsComponent,
+    UserLoginComponent,
+    UserSignupComponent
   ],
   imports: [
     BrowserModule,
