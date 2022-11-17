@@ -9,6 +9,11 @@ import { MedicalRecordsComponent } from './components/medical-records/medical-re
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserSignupComponent } from './components/user-signup/user-signup.component';
 import { MainComponent } from './components/main/main.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AuthService } from './services/auth.service';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,28 @@ import { MainComponent } from './components/main/main.component';
     MedicalRecordsComponent,
     UserLoginComponent,
     UserSignupComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    JwtModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    JwtHelperService,
+    AuthService,
+    {
+      provide: JWT_OPTIONS,
+      useValue: JWT_OPTIONS,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
