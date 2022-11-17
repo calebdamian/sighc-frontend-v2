@@ -15,6 +15,8 @@ import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthService } from './services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PatientFormComponent } from './components/patient-form/patient-form.component';
+import { MedicalRecordFormComponent } from './components/medical-record-form/medical-record-form.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UserSignupComponent,
     MainComponent,
     NavbarComponent,
+    PatientFormComponent,
+    MedicalRecordFormComponent,
   ],
   imports: [
     BrowserModule,
