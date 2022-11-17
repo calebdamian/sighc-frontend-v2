@@ -1,1 +1,18 @@
-<p>medical-record-form works!</p>
+<div class="row">
+  <div class="col-sm-4 offset-md4">
+    <div class="card card-body">
+      <form (submit)="submitMedicalRecord()">
+        <div class="form-group">
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="medicalRecord.entry"
+            class="form-control"
+            placeholder="Ingrese la entrada de la historia clínica"
+            autofocus
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,18 @@
-<p>medical-records works!</p>
+<div *ngFor="let medicalRecord of medicalRecords" class="card card-body mb-2">
+  <div class="row">
+    <div class="col-md-8">
+      <ul>
+        <li>entrada: {{ medicalRecord.entry }}</li>
+      </ul>
+      <button
+        (click)="deleteMedicalRecord(medicalRecord.id)"
+        class="btn btn-danger"
+      >
+        Eliminar
+      </button>
+      <button [routerLink]="['/', medicalRecord.id]" class="btn btn-secondary">
+        Actualizar
+      </button>
+    </div>
+  </div>
+</div>

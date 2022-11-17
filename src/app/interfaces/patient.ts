@@ -16,7 +16,7 @@ export interface Patient {
 
   user?: User;
 
-  medical_record: MedicalRecord;
+  medical_record?: MedicalRecord;
 }
 
 export interface PatientProfile {
