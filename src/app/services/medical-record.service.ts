@@ -26,12 +26,7 @@ export class MedicalRecordService {
         `${this.BASE_URL}/medical-records`,
         this.httpOptions
       )
-      .pipe(
-        map(
-          (results: any) => results.medicalrecords,
-          catchError(this.handleError)
-        )
-      );
+      .pipe(map((results: any) => results, catchError(this.handleError)));
   }
   getMedicalRecord(id: number): Observable<MedicalRecord> {
     return this.http.get<MedicalRecord>(
@@ -41,7 +36,7 @@ export class MedicalRecordService {
   }
   createMedicalRecord(
     userId: number,
-    patientId: number,
+    patientId: number | undefined,
     medicalRecord: MedicalRecord
   ): Observable<MedicalRecord> {
     return this.http.post<MedicalRecord>(

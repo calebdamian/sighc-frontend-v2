@@ -5,6 +5,7 @@ import { Patient } from 'src/app/interfaces/patient';
 import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-patients',
@@ -34,12 +35,29 @@ export class PatientsComponent implements OnInit {
   }
 
   deletePatient(id: number | undefined): void {
-    this.patientService.deletePatient(id).subscribe(
-      (res) => {
-        console.log(res);
-        this.getPatients();
-      },
-      (err) => console.log(err)
-    );
+    Swal.fire({
+      title: 'Está seguro de eliminar?',
+      text: 'No podrá revertir esta acción',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar paciente',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Se ha eliminado el paciente',
+          'Paciente eliminado',
+          'success'
+        );
+        this.patientService.deletePatient(id).subscribe(
+          (res) => {
+            console.log(res);
+            this.getPatients();
+          },
+          (err) => console.log(err)
+        );
+      }
+    });
   }
 }

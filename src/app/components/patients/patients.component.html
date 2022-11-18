@@ -1,27 +1,53 @@
 <app-navbar></app-navbar>
-<div *ngFor="let patient of patients" class="card card-body mb-2">
-  <div class="row">
-    <button [routerLink]="['patient/create']" class="btn btn-secondary">
-      Crear nuevo paciente
-    </button>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <ul>
+<div class="row">
+  <button
+    [routerLink]="['patient/create']"
+    class="btn btn-primary text-center center"
+  >
+    Crear nuevo paciente
+  </button>
+</div>
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">Primer nombre</th>
+      <th scope="col">Segundo nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Número de cédula</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let patient of patients">
+    <tr>
+      <td>{{ patient.first_name }}</td>
+      <td>{{ patient.middle_name }}</td>
+      <td>{{ patient.last_name }}</td>
+      <td>{{ patient.id_card }}</td>
+      <td>
+        <div class="d-flex gap-2 flex-wrap justify-content-center">
+          <button (click)="deletePatient(patient.id)" class="btn btn-danger">
+            Eliminar
+          </button>
+          <button
+            [routerLink]="['patient/edit', patient.id]"
+            class="btn btn-secondary"
+          >
+            Actualizar
+          </button>
+          <button
+            [routerLink]="['medicalrecord/', patient.id]"
+            class="btn btn-dark"
+          >
+            Crear Historia Clinica
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--<ul>
         <li>Nombre del paciente: {{ patient.first_name }}</li>
-        <li>Segundo nombre del paciente: {{ patient.middle_name }}</li>
+        <li>: {{ patient.middle_name }}</li>
         <li>Apellido del paciente: {{ patient.last_name }}</li>
         <li>Número de cédula del paciente: {{ patient.id_card }}</li>
-      </ul>
-      <button (click)="deletePatient(patient.id)" class="btn btn-danger">
-        Eliminar
-      </button>
-      <button
-        [routerLink]="['patient/edit', patient.id]"
-        class="btn btn-secondary"
-      >
-        Actualizar
-      </button>
-    </div>
-  </div>
-</div>
+      </ul>-->

@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PatientFormComponent } from './components/patient-form/patient-form.component';
 import { MedicalRecordFormComponent } from './components/medical-record-form/medical-record-form.component';
 import { PatientEditFormComponent } from './components/patient-edit-form/patient-edit-form.component';
+import { MedicalRecordEditFormComponent } from './components/medical-record-edit-form/medical-record-edit-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PatientEditFormComponent } from './components/patient-edit-form/patient
     PatientFormComponent,
     MedicalRecordFormComponent,
     PatientEditFormComponent,
+    MedicalRecordEditFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,34 @@
-<div *ngFor="let medicalRecord of medicalRecords" class="card card-body mb-2">
-  <div class="row">
-    <div class="col-md-8">
-      <ul>
-        <li>entrada: {{ medicalRecord.entry }}</li>
-      </ul>
-      <button
-        (click)="deleteMedicalRecord(medicalRecord.id)"
-        class="btn btn-danger"
-      >
-        Eliminar
-      </button>
-      <button
-        [routerLink]="[
-          'patients/patient/:id/medicalrecord/',
-          1,
-          medicalRecord.id
-        ]"
-        class="btn btn-secondary"
-      >
-        Actualizar
-      </button>
-    </div>
-  </div>
+<div class="d-flex justify-content-center m-2">
+  <h1>Lista de historias clinicas</h1>
 </div>
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Entrada</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let medicalRecord of medicalRecords">
+    <tr>
+      <td>{{ medicalRecord.id }}</td>
+      <td>{{ medicalRecord.entry }}</td>
+      <td>
+        <div class="d-flex gap-2 flex-wrap justify-content-center">
+          <button
+            (click)="deleteMedicalRecord(medicalRecord.id)"
+            class="btn btn-danger"
+          >
+            Eliminar
+          </button>
+          <button
+            [routerLink]="['update/', medicalRecord.id]"
+            class="btn btn-secondary"
+          >
+            Actualizar
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

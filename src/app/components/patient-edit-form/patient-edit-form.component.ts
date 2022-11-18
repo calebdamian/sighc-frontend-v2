@@ -9,6 +9,16 @@ import { PatientService } from 'src/app/services/patient.service';
   styleUrls: ['./patient-edit-form.component.css'],
 })
 export class PatientEditFormComponent implements OnInit {
+  patient: Patient = {
+    first_name: '',
+    id: undefined,
+    id_card: '',
+    last_name: '',
+    medical_record: undefined,
+    middle_name: '',
+    patient_profile: undefined,
+  };
+  patientId: undefined;
   constructor(
     private patientService: PatientService,
     private router: Router,
@@ -19,22 +29,20 @@ export class PatientEditFormComponent implements OnInit {
     if (params['id']) {
       this.patientService.getPatient(params['id']).subscribe(
         (res) => {
+          console.log('AL OBTENER PACIENTE EN EDIT FORM DE PATIENTS');
           console.log(res);
           this.patient = res;
         },
         (err) => console.log(err)
       );
     }
+    this.patientId = params['id'];
   }
-  patient: Patient = {
-    first_name: '',
-    middle_name: '',
-    last_name: '',
-    id_card: '',
-  };
 
   updatePatient() {
-    this.patientService.updatePatient(this.patient, this.patient.id).subscribe(
+    console.log('Metodo update patient');
+    console.log(this.patientId);
+    this.patientService.updatePatient(this.patient, this.patientId).subscribe(
       (res) => {
         console.log(res);
         this.router.navigate(['patients']);
