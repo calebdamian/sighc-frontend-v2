@@ -9,10 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PatientFormComponent implements OnInit {
   patient: Patient = {
-    first_name: '',
-    middle_name: '',
-    last_name: '',
-    id_card: '',
+    lastName: '',
+    firstName: '',
+    dob: new Date(),
+    idCard: '',
+    contactNumber: '',
+    email: '',
   };
 
   constructor(

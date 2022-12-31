@@ -24,7 +24,7 @@ export class AuthService {
   login(loginForm: LoginForm) {
     return this.http
       .post<any>(`${this.BASE_URL}/user/login`, {
-        username: loginForm.username,
+        email: loginForm.email,
         password: loginForm.password,
       })
       .pipe(

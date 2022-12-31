@@ -10,13 +10,12 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class PatientEditFormComponent implements OnInit {
   patient: Patient = {
-    first_name: '',
-    id: undefined,
-    id_card: '',
-    last_name: '',
-    medical_record: undefined,
-    middle_name: '',
-    patient_profile: undefined,
+    lastName: '',
+    firstName: '',
+    dob: new Date(),
+    idCard: '',
+    contactNumber: '',
+    email: '',
   };
   patientId: undefined;
   constructor(
@@ -31,7 +30,7 @@ export class PatientEditFormComponent implements OnInit {
         (res) => {
           console.log('AL OBTENER PACIENTE EN EDIT FORM DE PATIENTS');
           console.log(res);
-          this.patient = res;
+          //this.patient = res;
         },
         (err) => console.log(err)
       );

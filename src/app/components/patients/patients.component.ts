@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from 'src/app/interfaces/patient';
 import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patient.service';
@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./patients.component.css'],
 })
 export class PatientsComponent implements OnInit {
-  patients: Patient[] = [];
+  patients: any;
 
   constructor(
     private patientService: PatientService,
@@ -24,14 +24,27 @@ export class PatientsComponent implements OnInit {
     console.log(this.authService.isAuthenticated());
   }
 
-  getPatients(): void {
-    this.patientService.getPatients().subscribe(
-      (res) => {
-        console.log(res);
-        this.patients = res;
+  // getPatients() {
+  //   this.patientService.getPatients().subscribe(
+  //     (res: any) => {
+  //       console.log(res);
+  //       this.patients = res;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+
+  getPatients() {
+    this.patientService.getPatients().subscribe({
+      next: (response) => {
+        this.patients = response;
       },
-      (err) => console.log(err)
-    );
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   deletePatient(id: number | undefined): void {

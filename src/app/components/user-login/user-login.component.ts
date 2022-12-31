@@ -21,7 +21,7 @@ export class UserLoginComponent {
   ngOnInit(): void {}
 
   user: LoginForm = {
-    username: '',
+    email: '',
     password: '',
   };
 
@@ -29,19 +29,19 @@ export class UserLoginComponent {
     this.authService
       .login(this.user)
       .pipe(map((token) => this.router.navigate(['patients'])))
-      .subscribe(
-        (res) => {
-          console.log(res);
+      .subscribe({
+        next: (response) => {
+          console.log(response);
         },
-        (error) => {
-          if (error.status === 401 || error.status === 409) {
+        error: (err) => {
+          if (err.status === 401 || err.status === 409) {
             Swal.fire({
               icon: 'error',
               title: 'Error',
               text: 'Por favor, ingrese correctamente sus credenciales',
             });
           }
-        }
-      );
+        },
+      });
   }
 }

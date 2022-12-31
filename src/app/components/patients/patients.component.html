@@ -1,9 +1,6 @@
 <app-navbar></app-navbar>
 <div class="row">
-  <button
-    [routerLink]="['patient/create']"
-    class="btn btn-primary text-center center"
-  >
+  <button [routerLink]="['create']" class="btn btn-primary text-center center">
     Crear nuevo paciente
   </button>
 </div>
@@ -11,34 +8,31 @@
   <thead>
     <tr>
       <th scope="col">Primer nombre</th>
-      <th scope="col">Segundo nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Número de cédula</th>
+      <th scope="col">Fecha de nacimiento</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody *ngFor="let patient of patients">
     <tr>
-      <td>{{ patient.first_name }}</td>
-      <td>{{ patient.middle_name }}</td>
-      <td>{{ patient.last_name }}</td>
-      <td>{{ patient.id_card }}</td>
+      <td>{{ patient.firstName }}</td>
+      <td>{{ patient.lastName }}</td>
+      <td>{{ patient.idCard }}</td>
+      <td>{{ patient.dob }}</td>
       <td>
         <div class="d-flex gap-2 flex-wrap justify-content-center">
           <button (click)="deletePatient(patient.id)" class="btn btn-danger">
             Eliminar
           </button>
           <button
-            [routerLink]="['patient/edit', patient.id]"
+            [routerLink]="['edit/', patient.id]"
             class="btn btn-secondary"
           >
             Actualizar
           </button>
-          <button
-            [routerLink]="['medicalrecord/', patient.id]"
-            class="btn btn-dark"
-          >
-            Crear Historia Clinica
+          <button [routerLink]="['details/', patient.id]" class="btn btn-dark">
+            Detalles
           </button>
         </div>
       </td>

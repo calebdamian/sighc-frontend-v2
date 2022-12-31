@@ -9,22 +9,9 @@
         <input
           type="text"
           name="name"
-          [(ngModel)]="patient.first_name"
+          [(ngModel)]="patient.firstName"
           class="form-control"
           placeholder="Ingrese el primer nombre del paciente"
-          autofocus
-        />
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label"
-          >Segundo nombre</label
-        >
-        <input
-          type="text"
-          name="name"
-          [(ngModel)]="patient.middle_name"
-          class="form-control"
-          placeholder="Ingrese el segundo nombre del paciente"
           autofocus
         />
       </div>
@@ -33,7 +20,7 @@
         <input
           type="text"
           name="name"
-          [(ngModel)]="patient.last_name"
+          [(ngModel)]="patient.lastName"
           class="form-control"
           placeholder="Ingrese el apellido del paciente"
           autofocus
@@ -46,9 +33,46 @@
         <input
           type="text"
           name="name"
-          [(ngModel)]="patient.id_card"
+          [(ngModel)]="patient.idCard"
           class="form-control"
           placeholder="Ingrese el número de cédula del paciente"
+          autofocus
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Fecha de nacimiento</label
+        >
+        <input
+          type="date"
+          name="dob"
+          [(ngModel)]="patient.dob"
+          class="form-control"
+          placeholder="Ingrese el apellido del paciente"
+          autofocus
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="patient.email"
+          class="form-control"
+          placeholder="Ingrese el apellido del paciente"
+          autofocus
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Numero de contacto</label
+        >
+        <input
+          type="text"
+          name="dob"
+          [(ngModel)]="patient.contactNumber"
+          class="form-control"
+          placeholder="Ingrese el apellido del paciente"
           autofocus
         />
       </div>
