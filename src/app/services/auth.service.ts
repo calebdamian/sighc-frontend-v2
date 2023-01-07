@@ -14,7 +14,7 @@ export class AuthService {
     private jwtHelper: JwtHelperService
   ) {}
 
-  BASE_URL: string = 'http://127.0.0.1:3000';
+  BASE_URL: string = 'https://ingweb-sighc-backend.onrender.com';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
