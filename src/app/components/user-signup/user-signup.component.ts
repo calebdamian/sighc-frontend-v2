@@ -19,7 +19,7 @@ export class UserSignupComponent {
   ngOnInit(): void {}
 
   user: SignupForm = {
-    username: '',
+    email: '',
     password: '',
     confirm_pass: '',
   };

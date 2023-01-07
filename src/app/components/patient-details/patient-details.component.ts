@@ -129,10 +129,13 @@ export class PatientDetailsComponent {
   }
   submitEvolution() {
     this.evol.patientId = this.currentPatientId;
-    this.patientService.createEvolution(this.evol).subscribe(() => {
-      this.loadPage();
-      this.reloadEvol();
-    });
+    this.patientService.createEvolution(this.evol).subscribe(
+      () => {
+        this.loadPage();
+        this.reloadEvol();
+      },
+      (err) => confirm('No existen entradas en ese rango de fechas')
+    );
   }
 
   reloadEntry() {

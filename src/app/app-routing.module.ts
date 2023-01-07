@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MedicalRecordEditFormComponent } from './components/medical-record-edit-form/medical-record-edit-form.component';
-import { MedicalRecordFormComponent } from './components/medical-record-form/medical-record-form.component';
-import { MedicalRecordsComponent } from './components/medical-records/medical-records.component';
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
 import { PatientEditFormComponent } from './components/patient-edit-form/patient-edit-form.component';
 import { PatientFormComponent } from './components/patient-form/patient-form.component';
@@ -19,6 +16,10 @@ const routes: Routes = [
   {
     path: '',
     component: UserLoginComponent,
+  },
+  {
+    path: 'register',
+    component: UserSignupComponent,
   },
   {
     path: 'patients',
@@ -40,11 +41,6 @@ const routes: Routes = [
     component: PatientDetailsComponent,
     canActivate: [AuthGuard],
   },
-  /*{
-    path: 'patients/details/update/:id',
-    component: MedicalRecordEditFormComponent,
-    canActivate: [AuthGuard],
-  },*/
 ];
 
 @NgModule({
