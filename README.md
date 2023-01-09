@@ -1,3 +1,8 @@
+## Para hacer login a la página se debe ingresar las credenciales:
+
+Nombre de usuario: admin@example.com
+Contraseña: admin123
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
